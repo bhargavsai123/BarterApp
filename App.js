@@ -9,23 +9,19 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import Login from './screens/LoginScreen';
+import { AppTabNavigator } from './components/AppTabNavigator';
 
 export default class App extends React.Component {
 	render() {
-		return <Login />;
+		return <AppContainer />;
 	}
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	title: {
-		fontSize: 45,
-		padding: 20,
-	},
+const switchNavigator = createSwitchNavigator({
+	Login: { screen: Login },
+	TabNavigator: { screen: AppTabNavigator },
 });
+
+const AppContainer = createAppContainer(switchNavigator);
