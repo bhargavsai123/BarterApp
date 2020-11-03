@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { Icon } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -12,11 +12,50 @@ import 'react-native-vector-icons';
 
 export const AppTabNavigator = createBottomTabNavigator(
 	{
-		Home: { screen: HomeScreen },
-		Trade: { screen: TradeScreen },
-		Search: { screen: SearchScreen },
-		Transactions: { screen: TransactionScreen },
-		Profile: { screen: ProfileScreen },
+		Home: {
+			screen: HomeScreen,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => (
+					<Icon name='home' type='entypo' color={tintColor} />
+				),
+			},
+		},
+		Trade: {
+			screen: TradeScreen,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => (
+					<Icon name='users' type='feather' color={tintColor} />
+				),
+			},
+		},
+		Search: {
+			screen: SearchScreen,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => (
+					<Icon name='search' type='feather' color={tintColor} />
+				),
+			},
+		},
+		Transactions: {
+			screen: TransactionScreen,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => (
+					<Icon name='profile' type='antdesign' color={tintColor} />
+				),
+			},
+		},
+		Profile: {
+			screen: ProfileScreen,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => (
+					<Icon
+						name='account-circle'
+						type='materialcommunityicons'
+						color={tintColor}
+					/>
+				),
+			},
+		},
 	},
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
