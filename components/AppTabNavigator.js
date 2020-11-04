@@ -5,7 +5,7 @@ import { Icon } from 'react-native-elements';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import TradeScreen from '../screens/TradeScreen';
+import ExchangeScreen from '../screens/ExchangeScreen';
 import TransactionScreen from '../screens/TransactionScreen';
 import 'react-native-vector-icons';
 
@@ -19,8 +19,8 @@ export const AppTabNavigator = createBottomTabNavigator(
 				),
 			},
 		},
-		Trade: {
-			screen: TradeScreen,
+		Exchange: {
+			screen: ExchangeScreen,
 			navigationOptions: {
 				tabBarIcon: ({ tintColor }) => (
 					<Icon name='users' type='feather' color={tintColor} />
