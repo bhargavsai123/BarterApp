@@ -5,7 +5,6 @@ import { Icon } from 'react-native-elements';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import SearchScreen from '../screens/SearchScreen';
 import TradeScreen from '../screens/TradeScreen';
 import TransactionScreen from '../screens/TransactionScreen';
 import 'react-native-vector-icons';
@@ -25,14 +24,6 @@ export const AppTabNavigator = createBottomTabNavigator(
 			navigationOptions: {
 				tabBarIcon: ({ tintColor }) => (
 					<Icon name='users' type='feather' color={tintColor} />
-				),
-			},
-		},
-		Search: {
-			screen: SearchScreen,
-			navigationOptions: {
-				tabBarIcon: ({ tintColor }) => (
-					<Icon name='search' type='feather' color={tintColor} />
 				),
 			},
 		},
@@ -65,8 +56,8 @@ export const AppTabNavigator = createBottomTabNavigator(
 				inactiveTintColor: '#676767',
 				style: {
 					borderWidth: 0,
-					backgroundColor: '#3490dc',
-					borderTopColor: '#2779E1',
+					backgroundColor: '#428DFC',
+					borderTopColor: '#3490dc',
 				},
 			},
 		}),
