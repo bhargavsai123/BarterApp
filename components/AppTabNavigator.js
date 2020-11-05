@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ExchangeScreen from '../screens/ExchangeScreen';
 import TransactionScreen from '../screens/TransactionScreen';
+
 import 'react-native-vector-icons';
 
 export const AppTabNavigator = createBottomTabNavigator(

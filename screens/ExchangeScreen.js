@@ -18,6 +18,7 @@ import db from '../config';
 import firebase from 'firebase';
 import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
+import { FloatingAction } from 'react-native-floating-action';
 
 export default class ExchangeScreen extends React.Component {
 	constructor() {
@@ -108,7 +109,7 @@ export default class ExchangeScreen extends React.Component {
 			this.setState({ trades: requestedTrades });
 		});
 	};
-	componentDidMount() {
+	UNSAFE_componentWillMount() {
 		this.getTradeList();
 	}
 	componentWillMount() {
@@ -176,7 +177,7 @@ export default class ExchangeScreen extends React.Component {
 					}}>
 					<Text style={styles.text}>Add Items</Text>
 				</TouchableOpacity>
-				<StatusBar backgroundColor='#428DFC' style={'light'} />
+				<StatusBar style={'auto'} />
 			</View>
 		);
 	}

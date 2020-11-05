@@ -275,7 +275,7 @@ export default class Login extends React.Component {
 						</Text>
 					</TouchableOpacity>
 				</View>
-				<StatusBar style='light' />
+				<StatusBar style='auto' backgroundColor='transparent' />
 			</View>
 		);
 	}
@@ -311,6 +311,14 @@ const styles = StyleSheet.create({
 		backgroundColor: '#f1f1f1',
 		color: '#999999',
 		alignSelf: 'center',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 8,
+			height: 8,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 10.32,
+		elevation: 16,
 	},
 	button: {
 		width: 300,
@@ -321,6 +329,14 @@ const styles = StyleSheet.create({
 		backgroundColor: '#2779E1',
 		alignSelf: 'center',
 		justifyContent: 'center',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 8,
+			height: 8,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 10.32,
+		elevation: 16,
 	},
 	modal: {
 		width: 380,
@@ -332,5 +348,13 @@ const styles = StyleSheet.create({
 		paddingLeft: 10,
 		alignContent: 'center',
 		alignSelf: 'center',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 8,
+			height: 8,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 10.32,
+		elevation: 16,
 	},
 });
