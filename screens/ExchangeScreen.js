@@ -19,6 +19,7 @@ import firebase from 'firebase';
 import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
 import { FloatingAction } from 'react-native-floating-action';
+import { FAB } from 'react-native-paper';
 
 export default class ExchangeScreen extends React.Component {
 	constructor() {
@@ -170,14 +171,22 @@ export default class ExchangeScreen extends React.Component {
 						renderItem={this.renderItem}
 					/>
 				</ScrollView>
-				<TouchableOpacity
+				{/* <TouchableOpacity
 					style={styles.outbutton}
 					onPress={() => {
 						this.setState({ isModalVisible: true });
 					}}>
 					<Text style={styles.text}>Add Items</Text>
-				</TouchableOpacity>
-				<StatusBar style={'auto'} />
+				</TouchableOpacity> */}
+				<FAB
+					style={styles.fab}
+					label={'Add Items'}
+					icon='plus'
+					onPress={() => {
+						this.setState({ isModalVisible: true });
+					}}
+				/>
+				<StatusBar style={'light'} />
 			</View>
 		);
 	}
@@ -241,22 +250,11 @@ const styles = StyleSheet.create({
 		padding: 5,
 		alignSelf: 'center',
 	},
-	outbutton: {
-		width: 300,
-		height: 40,
-		fontSize: 20,
-		borderRadius: 5,
-		margin: 10,
+	fab: {
+		position: 'absolute',
+		margin: 16,
+		right: 0,
+		bottom: 0,
 		backgroundColor: '#1972f7',
-		alignSelf: 'center',
-		justifyContent: 'center',
-		shadowColor: '#000',
-		shadowOffset: {
-			width: 8,
-			height: 8,
-		},
-		shadowOpacity: 0.3,
-		shadowRadius: 10.32,
-		elevation: 12,
 	},
 });
