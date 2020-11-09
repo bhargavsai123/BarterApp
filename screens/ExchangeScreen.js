@@ -20,6 +20,7 @@ import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
 import { FloatingAction } from 'react-native-floating-action';
 import { FAB } from 'react-native-paper';
+import MyHeader from '../components/header';
 
 export default class ExchangeScreen extends React.Component {
 	constructor() {
@@ -152,18 +153,7 @@ export default class ExchangeScreen extends React.Component {
 		return (
 			<View style={styles.container}>
 				{this.showModal()}
-				<Header
-					backgroundColor='#428DFC'
-					leftComponent={{ icon: 'menu', color: '#f1f1f1' }}
-					centerComponent={{
-						text: 'Exchange',
-						style: { color: '#f1f1f1', fontSize: 20 },
-					}}
-					rightComponent={{ icon: 'settings', color: '#f1f1f1' }}
-					containerStyle={{
-						borderBottomColor: '#3490dc',
-					}}
-				/>
+				<MyHeader title='Exchange' navigation={this.props.navigation} />
 				<ScrollView>
 					<FlatList
 						keyExtractor={this.keyExtractor}
@@ -171,13 +161,6 @@ export default class ExchangeScreen extends React.Component {
 						renderItem={this.renderItem}
 					/>
 				</ScrollView>
-				{/* <TouchableOpacity
-					style={styles.outbutton}
-					onPress={() => {
-						this.setState({ isModalVisible: true });
-					}}>
-					<Text style={styles.text}>Add Items</Text>
-				</TouchableOpacity> */}
 				<FAB
 					style={styles.fab}
 					label={'Add Items'}
@@ -186,7 +169,7 @@ export default class ExchangeScreen extends React.Component {
 						this.setState({ isModalVisible: true });
 					}}
 				/>
-				<StatusBar style={'light'} />
+				<StatusBar style='light' backgroundColor='transparent' />
 			</View>
 		);
 	}

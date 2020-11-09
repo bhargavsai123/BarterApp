@@ -275,7 +275,7 @@ export default class Login extends React.Component {
 						</Text>
 					</TouchableOpacity>
 				</View>
-				<StatusBar style='auto' backgroundColor='transparent' />
+				<StatusBar style='light' backgroundColor='transparent' />
 			</View>
 		);
 	}
@@ -284,7 +284,7 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#3490dc',
+		backgroundColor: '#A1C3FC',
 		alignContent: 'center',
 		justifyContent: 'center',
 	},
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		borderRadius: 5,
 		margin: 10,
-		backgroundColor: '#2779E1',
+		backgroundColor: '#1972f7',
 		alignSelf: 'center',
 		justifyContent: 'center',
 		shadowColor: '#000',
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		borderRadius: 5,
 		margin: 10,
-		backgroundColor: '#2779E1',
+		backgroundColor: '#1972f7',
 		paddingLeft: 10,
 		alignContent: 'center',
 		alignSelf: 'center',
