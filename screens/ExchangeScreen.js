@@ -8,9 +8,11 @@ import {
 	TextInput,
 	StyleSheet,
 	TouchableOpacity,
+	KeyboardAvoidingView,
 	Modal,
 	Alert,
 	FlatList,
+	KeyboardAvoidingViewComponent,
 } from 'react-native';
 import { Header, ListItem, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -54,54 +56,56 @@ export default class ExchangeScreen extends React.Component {
 				animationType='slide'
 				transparent={true}
 				visible={this.state.isModalVisible}>
-				<View style={styles.modal}>
-					<Text style={styles.title}>Add Item</Text>
-					<View
-						style={{
-							backgroundColor: '#428DFC',
-							borderBottomStartRadius: 3,
-							borderBottomEndRadius: 3,
-						}}>
-						<TextInput
-							placeholder='Item Name'
-							style={[styles.input, { marginTop: 50 }]}
-							onChangeText={(text) => {
-								this.setState({ itemName: text });
-							}}
-						/>
-						<TextInput
-							placeholder='Description'
-							multiline={true}
-							style={[
-								styles.input,
-								{ height: 140, marginTop: 30, marginBottom: 20 },
-							]}
-							onChangeText={(text) => {
-								this.setState({ description: text });
-							}}
-						/>
-						<TouchableOpacity
-							style={styles.button}
-							onPress={() => {
-								this.addItem(this.state.itemName, this.state.description);
+				<KeyboardAvoidingView style={styles.modal}>
+					<ScrollView>
+						<Text style={styles.title}>Add Item</Text>
+						<View
+							style={{
+								backgroundColor: '#428DFC',
+								borderBottomStartRadius: 3,
+								borderBottomEndRadius: 3,
 							}}>
-							<Text style={styles.text}>Add Item</Text>
-						</TouchableOpacity>
-						<TouchableOpacity
-							style={{ marginBottom: 20 }}
-							onPress={() => {
-								this.setState({ isModalVisible: false });
-							}}>
-							<Text
+							<TextInput
+								placeholder='Item Name'
+								style={[styles.input, { marginTop: 50 }]}
+								onChangeText={(text) => {
+									this.setState({ itemName: text });
+								}}
+							/>
+							<TextInput
+								placeholder='Description'
+								multiline={true}
 								style={[
-									styles.text,
-									{ fontSize: 15, textDecorationLine: 'underline' },
-								]}>
-								Cancel
-							</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
+									styles.input,
+									{ height: 140, marginTop: 30, marginBottom: 20 },
+								]}
+								onChangeText={(text) => {
+									this.setState({ description: text });
+								}}
+							/>
+							<TouchableOpacity
+								style={styles.button}
+								onPress={() => {
+									this.addItem(this.state.itemName, this.state.description);
+								}}>
+								<Text style={styles.text}>Add Item</Text>
+							</TouchableOpacity>
+							<TouchableOpacity
+								style={{ marginBottom: 20 }}
+								onPress={() => {
+									this.setState({ isModalVisible: false });
+								}}>
+								<Text
+									style={[
+										styles.text,
+										{ fontSize: 15, textDecorationLine: 'underline' },
+									]}>
+									Cancel
+								</Text>
+							</TouchableOpacity>
+						</View>
+					</ScrollView>
+				</KeyboardAvoidingView>
 			</Modal>
 		);
 	};
@@ -188,7 +192,7 @@ const styles = StyleSheet.create({
 		alignContent: 'center',
 		alignSelf: 'center',
 		borderRadius: 5,
-		marginVertical: 100,
+		marginVertical: 70,
 		shadowColor: '#000',
 		shadowOffset: {
 			width: 8,
@@ -201,7 +205,7 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 25,
 		padding: 20,
-		color: '#202565',
+		color: '#f1f1f1',
 		alignSelf: 'center',
 	},
 	button: {
@@ -214,6 +218,14 @@ const styles = StyleSheet.create({
 		backgroundColor: '#1972f7',
 		alignSelf: 'center',
 		justifyContent: 'center',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 8,
+			height: 8,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 10.32,
+		elevation: 16,
 	},
 	input: {
 		width: 280,
@@ -226,6 +238,14 @@ const styles = StyleSheet.create({
 		backgroundColor: '#f1f1f1',
 		color: '#999999',
 		alignSelf: 'center',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 8,
+			height: 8,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 10.32,
+		elevation: 16,
 	},
 	text: {
 		color: '#f1f1f1',
@@ -239,5 +259,13 @@ const styles = StyleSheet.create({
 		right: 0,
 		bottom: 0,
 		backgroundColor: '#1972f7',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 8,
+			height: 8,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 10.32,
+		elevation: 4,
 	},
 });
