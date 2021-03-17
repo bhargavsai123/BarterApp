@@ -6,8 +6,9 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import ExchangeScreen from "../screens/ExchangeScreen";
-import TransactionScreen from "../screens/TransactionScreen";
+
 import { AppStackNavigator } from "./stack";
+import Barters from "../screens/Barters";
 
 import "react-native-vector-icons";
 
@@ -29,23 +30,11 @@ export const AppTabNavigator = createBottomTabNavigator(
         ),
       },
     },
-    Transactions: {
-      screen: TransactionScreen,
+    "Barter's List": {
+      screen: Barters,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name='profile' type='antdesign' color={tintColor} />
-        ),
-      },
-    },
-    Profile: {
-      screen: ProfileScreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <Icon
-            name='account-circle'
-            type='materialcommunityicons'
-            color={tintColor}
-          />
+          <Icon name='list' type='entypo' color={tintColor} />
         ),
       },
     },

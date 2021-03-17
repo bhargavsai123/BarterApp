@@ -8,14 +8,15 @@ import SideBar from "./SideBar";
 import HomeScreen from "../screens/HomeScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import ExchangeScreen from "../screens/ExchangeScreen";
-import TransactionScreen from "../screens/TransactionScreen";
+
+import Barters from "../screens/Barters";
 
 export const AppDrawerNavigator = createDrawerNavigator(
   {
     Barter: { screen: AppTabNavigator },
     Home: { screen: HomeScreen },
     Exchange: { screen: ExchangeScreen },
-    Transactions: { screen: TransactionScreen },
+    "Barter's List": { screen: Barters },
     Profile: { screen: ProfileScreen },
   },
   {

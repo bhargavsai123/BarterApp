@@ -14,7 +14,7 @@ import {
   FlatList,
   KeyboardAvoidingViewComponent,
 } from "react-native";
-import { Header, ListItem, Avatar } from "react-native-elements";
+import { ListItem } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 import db from "../config";
 import firebase from "firebase";
@@ -36,15 +36,20 @@ export default class ExchangeScreen extends React.Component {
     };
     this.tradeRef = null;
   }
+  createUniqueId() {
+    return Math.random().toString(36).substring(7);
+  }
   addItem = (itemName, description) => {
     if (this.state.itemName === "" || this.state.description === "") {
       Alert.alert("Please enter the Item you want to Exchange");
     } else {
       var userName = this.state.userName;
+      exchangeId = this.createUniqueId();
       db.collection("trades").add({
         user_name: userName,
         item_name: itemName,
         description_d: description,
+        exchange_id: exchangeId,
       });
       this.setState({ itemName: "", description: "" });
       return Alert.alert("Item Ready to Exchange");
@@ -63,6 +68,7 @@ export default class ExchangeScreen extends React.Component {
             <View
               style={{
                 backgroundColor: "#428DFC",
+                borderRadius: 10,
                 borderBottomStartRadius: 3,
                 borderBottomEndRadius: 3,
               }}
@@ -149,7 +155,7 @@ export default class ExchangeScreen extends React.Component {
           end: { x: 0.2, y: 0 },
         }}
         onPress={() => {
-          this.props.navigation.navigate("UserDetails");
+          this.props.navigation.navigate("UserDetails", { details: item });
           console.log(item.item_name);
         }}
       >
@@ -157,7 +163,9 @@ export default class ExchangeScreen extends React.Component {
           <ListItem.Title style={{ color: "#f1f1f1", fontWeight: "bold" }}>
             {item.item_name}
           </ListItem.Title>
-          <ListItem.Subtitle>{item.user_name}</ListItem.Subtitle>
+          <ListItem.Subtitle style={{ color: "#f1f1f1" }}>
+            {item.user_name}
+          </ListItem.Subtitle>
         </ListItem.Content>
         <ListItem.Chevron color='white' />
       </ListItem>
@@ -208,8 +216,8 @@ const styles = StyleSheet.create({
       width: 8,
       height: 8,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 10.32,
+    shadowOpacity: 0.5,
+    shadowRadius: 102,
     elevation: 16,
   },
   title: {
@@ -244,7 +252,7 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 5,
     paddingLeft: 10,
-    margin: 10,
+    margin: 30,
     backgroundColor: "#f1f1f1",
     color: "#999999",
     alignSelf: "center",
